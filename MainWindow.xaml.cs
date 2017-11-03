@@ -185,8 +185,6 @@ namespace WpfApplication
                 {
                     try
                     {
-                        Thread Thread = new Thread(() =>
-                        {
                             Application.Current.Dispatcher.Invoke(delegate
                         {
                             MemoryFunctions.Toggle_RP_Checked_ToggleSwitch(Toggle_RP_Checked_ToggleSwitch.IsChecked);
@@ -195,10 +193,7 @@ namespace WpfApplication
                             MemoryFunctions.GAME_set_Wanted_Level(0);
                             Thread.Sleep(100);
                         });
-                        });
-                        Thread.IsBackground = true;
-                        Thread.SetApartmentState(ApartmentState.STA);
-                        Thread.Start();
+
                     }
                     catch
                     {
